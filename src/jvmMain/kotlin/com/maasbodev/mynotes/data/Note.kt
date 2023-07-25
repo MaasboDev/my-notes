@@ -12,6 +12,8 @@ data class Note(
     enum class Type { TEXT, AUDIO, }
 }
 
+operator fun Note.plus(other: Note) = Note(title, "$description + ${other.description}", type)
+
 fun getNotes() = flow {
     delay(2000)
     val notes = (1..10).map {
